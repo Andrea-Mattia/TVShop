@@ -27,7 +27,7 @@ class TvController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tvs.create');
     }
 
     /**
@@ -47,9 +47,9 @@ class TvController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tv $tv)
     {
-        //
+        return view('admin.tvs.show', compact('tv'));
     }
 
     /**

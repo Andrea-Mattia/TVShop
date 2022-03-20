@@ -4,6 +4,8 @@
     <section class="container">
         <h1 class="mb-3">Tv</h1>
 
+        <a class="btn btn-success mb-3" href="{{ route('admin.tvs.create') }}">Create new TV</a>
+
         <table class="table">
             <thead>
                 <tr>
@@ -21,7 +23,9 @@
                         <td>
                             {{ $tv->name }}
                         </td>
-                        <td>SHOW</td>
+                        <td>
+                            <a href="{{ route('admin.tvs.show', $tv->id) }}" class="btn btn-primary">SHOW</a>
+                        </td>
                         <td>EDIT</td>
                         <td>DELETE</td>
                     </tr>
