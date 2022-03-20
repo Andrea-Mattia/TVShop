@@ -26,5 +26,8 @@ Route::prefix('admin'
     ->middleware('auth')
     ->name('admin.')
     ->group(function() {
+        // Homepage
         Route::get('/', 'HomeController@index')->name('home');
+        // Crud
+        Route::resource('tvs', 'TvController');
     });
