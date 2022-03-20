@@ -38,7 +38,22 @@ class TvController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:tvs',
+            'description' => 'required',
+            'inch' => 'required',
+            'price' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        $new_tv = new Tv;
+
+        $new_tv->fill($data);
+
+        $new_tv->save();
+
+        return redirect()->route('admin.tvs.show', $new_tv->id);
     }
 
     /**
@@ -58,9 +73,9 @@ class TvController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tv $tv)
     {
-        //
+        return view('admin.tvs.edit', compact('tv'));
     }
 
     /**
